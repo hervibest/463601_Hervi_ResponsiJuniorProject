@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "eA/AN0XfD/WELd42lbYC5Wg/xQNGjyfwDEE6O2D9R2vxtVhx9jUJW3kj6qFfexBPhTJO15QAJsr1jveB/lKg2g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Hervi Nur Rahmandien\\source\\repos\\Responsi_APP\\Responsi_APP\\Responsi_APP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hervi Nur Rahmandien\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hervi Nur Rahmandien\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
+    "C:\\Users\\Hervi Nur Rahmandien\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

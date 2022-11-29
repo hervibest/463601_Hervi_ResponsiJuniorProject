@@ -110,8 +110,35 @@ namespace Responsi_APP
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (r == null)
+            {
+                MessageBox.Show("Mohon Pilih baris data yang akan diupdate", "Good!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
+                    sql = @"select * from st_update(:_id,:_name,:_alamat,:_no_handphone)";
+                    cmd = new NpgsqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("_id", r.Cells["_id"].Value.ToString());
+                    cmd.Parameters.AddWithValue("_name", textBox1.Text);
 
-       
+
+                    if ((int)cmd.ExecuteScalar() == 1)
+                    {
+                        MessageBox.Show("Data Users Berhasil diupdate", "Well Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conn.Close();
+
+                        r = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message, "update FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
 
         }
         private void button4_Click(object sender, EventArgs e)

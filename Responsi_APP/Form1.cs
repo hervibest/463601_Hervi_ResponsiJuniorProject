@@ -80,68 +80,38 @@ namespace Responsi_APP
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //if (r == null)
-            //{
-            //    MessageBox.Show("Mohon pilih baris data yang akan diupdate", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
-            //if (MessageBox.Show("Apakah benar Anda ingin menghapus data " + r.Cells["_name"].Value.ToString() + " ?", "Hapus data terkonfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            if (r == null)
+            {
+                MessageBox.Show("Mohon pilih baris data yang akan diupdate", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (MessageBox.Show("Apakah benar Anda ingin menghapus data " + " ?", "Hapus data terkonfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
 
-            //    try
-            //    {
-            //        conn.Open();
-            //        sql = @"select * from st_delete(:_id)";
-            //        cmd = new NpgsqlCommand(sql, conn);
-            //        cmd.Parameters.AddWithValue("_id", r.Cells["_id"].Value.ToString());
-            //        if ((int)cmd.ExecuteScalar() == 1)
-            //        {
-            //            MessageBox.Show("Data Users Berhasil dihapus", "Well Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            conn.Close();
-            //            btnLoaddata.PerformClick();
-            //            txtName.Text = txtNo_handphone.Text = txtAlamat.Text = null;
-            //            r = null;
-            //        }
+             try
+             {
+                 conn.Open();
+                 sql = @"select * from delete_id(:_id_karyawan)";
+                 cmd = new NpgsqlCommand(sql, conn);
+                 cmd.Parameters.AddWithValue("_id_karyawan", r.Cells["_id_karyawan"].Value.ToString());
+                 if ((int)cmd.ExecuteScalar() == 1)
+                 {
+                     MessageBox.Show("Data Users Berhasil dihapus", "Well Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     conn.Close();
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error:" + ex.Message, "Delete FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
+                 }
+
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Error:" + ex.Message, "Delete FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
 
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
 
-            //if (r == null)
-            //{
-            //    MessageBox.Show("Mohon Pilih baris data yang akan diupdate", "Good!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        conn.Open();
-            //        sql = @"select * from st_update(:_id,:_name,:_alamat,:_no_handphone)";
-            //        cmd = new NpgsqlCommand(sql, conn);
-            //        cmd.Parameters.AddWithValue("_id", r.Cells["_id"].Value.ToString());
-            //        cmd.Parameters.AddWithValue("_name", txtName.Text);
-            //        cmd.Parameters.AddWithValue("_alamat", txtAlamat.Text);
-            //        cmd.Parameters.AddWithValue("_no_handphone", txtNo_handphone.Text);
-            //        if ((int)cmd.ExecuteScalar() == 1)
-            //        {
-            //            MessageBox.Show("Data Users Berhasil diupdate", "Well Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            conn.Close();
-            //            btnLoaddata.PerformClick();
-            //            txtName.Text = txtNo_handphone.Text = txtAlamat.Text = null;
-            //            r = null;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error:" + ex.Message, "update FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
+       
 
         }
         private void button4_Click(object sender, EventArgs e)
